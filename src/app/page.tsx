@@ -5,11 +5,18 @@ import * as React from "react";
 async function getIndexList(IndexId: string) {
   try {
     const response = await fetch(
-      `${process.env.BASE_URL}/api/video/list/${IndexId}`
+      `${process.env.BASE_URL}/api/video/list/${IndexId}`,
+      { cache: "no-store" }
     );
 
     const videolist = await response.json();
-    return videolist.data;
+    console.log(
+      "BUILDING@!!!!",
+      `${process.env.BASE_URL}/api/video/list/${IndexId}`
+    );
+
+    console.log(videolist);
+    return videolist.result;
   } catch (error) {
     console.error("ERROR", error);
     return [];
@@ -26,9 +33,11 @@ export default async function Home() {
     updated_at: string;
   }> = await getIndexList(process.env.TL_INDEX_ID as string);
 
+  console.log(videoList);
+
   return (
     <div>
-      {videoList?.map(
+      {videoList.map(
         (video: {
           video_url: string;
           thumbnail_urls: string[];
