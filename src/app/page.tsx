@@ -3,24 +3,24 @@ import Image from "next/image";
 import * as React from "react";
 
 async function getIndexList(IndexId: string) {
-  try {
-    const response = await fetch(
-      `${process.env.BASE_URL}/api/video/list/${IndexId}`,
-      { cache: "no-store" }
-    );
+  // try {
+  const response = await fetch(
+    `${process.env.BASE_URL}/api/video/list/${IndexId}`,
+    { cache: "no-store" }
+  );
 
-    const videolist = await response.json();
-    console.log(
-      "BUILDING@!!!!",
-      `${process.env.BASE_URL}/api/video/list/${IndexId}`
-    );
+  const videolist = await response.json();
+  console.log(
+    "BUILDING@!!!!",
+    `${process.env.BASE_URL}/api/video/list/${IndexId}`
+  );
 
-    console.log(videolist);
-    return videolist.result;
-  } catch (error) {
-    console.error("ERROR", error);
-    return [];
-  }
+  console.log(videolist);
+  return videolist.result;
+  // } catch (error) {
+  //   console.error("ERROR", error);
+  //   return [];
+  // }
 }
 
 export default async function Home() {
