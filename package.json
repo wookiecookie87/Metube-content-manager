@@ -6,7 +6,7 @@
     "dev": "env-cmd -f .env.development next dev",
     "prd": "env-cmd -f .env.production next dev",
     "build:dev": "env-cmd -f .env.development next build",
-    "build:prd": "env-cmd -f .env.development next build",
+    "build:prd": "env-cmd -f .env.production next build",
     "start": "next start",
     "lint": "next lint"
   },
