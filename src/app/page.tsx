@@ -28,7 +28,7 @@ export default async function Home() {
 
   return (
     <div>
-      {videoList.map(
+      {videoList?.map(
         (video: {
           video_url: string;
           thumbnail_urls: string[];
