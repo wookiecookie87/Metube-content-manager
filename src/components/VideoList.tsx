@@ -9,7 +9,7 @@ import { AltRoute } from "@mui/icons-material";
 
 export interface VideoListProps extends MediaData {}
 
-export default function MediaList(props: VideoListProps) {
+export default function VideoList(props: VideoListProps) {
   const [page, setPage] = React.useState(1);
   const [videos, setVideos] = React.useState(props.result);
   const [sort, setSort] = React.useState("created_at");

@@ -36,7 +36,7 @@ export default function VideoCard(props: videoProps) {
                 right: 0,
               }}
               image={props.thumbnail_urls[0]}
-              title={`Updated at ${props.updated_at}`}
+              title={`Updated at`}
             />
           </Box>
         </CardActionArea>
