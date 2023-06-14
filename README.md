@@ -29,6 +29,15 @@ Actual Implementation of the functionalities
 
 - Managing hundreds of video contents is difficult. With this software, we don't need to watch every video and manually label and tag each one. We can simply upload the videos to the platform, and it will index each video, making search and classification easy. This software will organize all videos, saving us hundreds of hours
 
+
+
+
+
+
+
+
+
+
 ### Total time to finish the project
 
 - Understand our API, Playground, and its core functionality : **2 hours**
