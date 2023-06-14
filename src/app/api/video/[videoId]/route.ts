@@ -12,7 +12,5 @@ export async function GET(
     headers: TL_HEADERS,
   });
 
-  const video_url = response.data.hls.video_url;
-
-  return NextResponse.json({ result: video_url }, { status: 200 });
+  return NextResponse.json({ result: response.data.hls }, { status: 200 });
 }

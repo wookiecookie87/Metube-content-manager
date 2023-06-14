@@ -1,9 +1,8 @@
 "use client";
 
-import { Box, Button, Grid, MenuItem, Pagination } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import React, { useState } from "react";
-import VideoCard from "./VideoCard";
-import { MediaData, SearchedMediaData, SearchedVideo, Video } from "@/types";
+import { SearchedMediaData, SearchedVideo } from "@/types";
 import SearchedVideoCard from "./SearchedVideoCard";
 
 export interface SearchedVideoListProps extends SearchedMediaData {}

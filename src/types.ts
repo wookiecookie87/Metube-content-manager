@@ -37,3 +37,20 @@ export type SearchData = {
   searchQuery: string;
   searchOptions: string[];
 };
+
+export type ClassGroup = {
+  name: string;
+  prompts: string[];
+};
+
+export type ClassifiedVideoData = {
+  className: string;
+  videos: {
+    video_id: string;
+    score: number;
+  }[];
+};
+
+export type ClassifiedMediaData = {
+  videoData: ClassifiedVideoData[];
+};

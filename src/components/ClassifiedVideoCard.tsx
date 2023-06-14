@@ -1,35 +1,38 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Modal,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardActionArea, CardMedia, Modal } from "@mui/material";
 import ReactPlayer from "react-player";
 import { SearchedVideo, Video } from "@/types";
 
 interface SearchedVideoProps {
-  video: SearchedVideo;
+  video_id: string;
 }
 
-export default function SearchedVideoCard(props: SearchedVideoProps) {
+export default function ClassifiedVideoCard(props: SearchedVideoProps) {
   const [open, setOpen] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
+  const [thumbnailUrl, setThumbnailUrl] = useState("");
   const playerRef = useRef<ReactPlayer>(null);
-  const { video } = props;
+  const { video_id } = props;
 
-  const fetchVideoInfo = async () => {
+  useEffect(() => {
+    const fetchMediaData = async () => {
+      await fetchVideoInfo();
+    };
+
+    fetchMediaData();
+  }, []);
+
+  async function fetchVideoInfo() {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/video/${video.video_id}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/video/${video_id}`,
       { cache: "no-store" }
     );
     const videoData = await response.json();
     setVideoUrl(videoData.result.video_url);
-  };
+    setThumbnailUrl(videoData.result.thumbnail_urls[0]);
+  }
 
   const handleOpen = () => {
     fetchVideoInfo();
@@ -44,13 +47,6 @@ export default function SearchedVideoCard(props: SearchedVideoProps) {
   useEffect(() => {
     if (!open && playerRef.current) {
       playerRef.current.seekTo(0);
-    }
-  }, [open]);
-
-  const onReady = React.useCallback(() => {
-    if (open && playerRef.current) {
-      const timeToStart = video.start;
-      playerRef.current.seekTo(timeToStart, "seconds");
     }
   }, [open]);
 
@@ -69,23 +65,9 @@ export default function SearchedVideoCard(props: SearchedVideoProps) {
                 left: 0,
                 right: 0,
               }}
-              image={video.thumbnail_url}
+              image={thumbnailUrl}
               title={`Updated at`}
             />
-          </Box>
-          <Box sx={{ position: "absolute", bottom: 10, left: 10 }}>
-            <Typography variant="body1" color="black">
-              Confidence: {video.confidence}
-            </Typography>
-            <Typography variant="body1" color="black">
-              score: {video.score}
-            </Typography>
-            <Typography variant="body1" color="black">
-              type: {video.modules[0].type}
-            </Typography>
-            {/* <Typography key={index} variant="body2" color="white">
-                Type: {module.type}
-              </Typography> */}
           </Box>
         </CardActionArea>
       </Card>
@@ -107,13 +89,7 @@ export default function SearchedVideoCard(props: SearchedVideoProps) {
             p: 4,
           }}
         >
-          <ReactPlayer
-            url={videoUrl}
-            controls
-            playing={open}
-            ref={playerRef}
-            onReady={onReady}
-          />
+          <ReactPlayer url={videoUrl} controls playing={open} ref={playerRef} />
         </Box>
       </Modal>
     </div>

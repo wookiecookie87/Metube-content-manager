@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
-import { TL_HEADERS, VIDEO_SEARCH_API_URL } from "../../constants";
+import { TL_HEADERS, VIDEO_SEARCH_API_URL, INDEX_ID } from "../../constants";
 
 export async function POST(request: Request) {
   //onsole.log(request);
@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
   const data = JSON.stringify({
     query: searchQuery,
-    index_id: process.env.TL_INDEX_ID,
+    index_id: INDEX_ID,
     search_options: searchOptions,
     page_limit: 16,
   });

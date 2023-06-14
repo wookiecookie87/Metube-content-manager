@@ -34,7 +34,6 @@ export default function Search() {
     );
 
     const data = await response.json();
-    console.log(data);
     setVideoData(null);
     setSearchedVideoData(data);
   };
@@ -43,9 +42,7 @@ export default function Search() {
     <>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
-          <Grid item xs={12} sm={2}>
-            <div className="text-4xl font-bold">Search</div>
-          </Grid>
+          <div className="text-4xl font-bold">Search</div>
         </Grid>
         <Grid item xs={12} sm={2}>
           <SearchForm onSearch={handleSearch} />
