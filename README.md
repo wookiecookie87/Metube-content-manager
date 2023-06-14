@@ -38,7 +38,7 @@ Actual Implementation of the functionalities
   &nbsp;&nbsp;&nbsp;Understanding Next13: **2 hours**
   
   &nbsp;&nbsp;&nbsp;Setting up code base : **1 hour**
-- Actual Implementation of the functionalitie
+- Actual Implementation of the functionalities
 
   &nbsp;&nbsp;&nbsp;Video Listing : **3 hours**
   
