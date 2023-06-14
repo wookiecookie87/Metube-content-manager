@@ -1,4 +1,4 @@
-import { TL_HEADERS, VIDEO_SEARCH_API_URL } from "@/app/api/constants";
+import { TL_HEADERS, VIDEO_SEARCH_API_URL } from "@/app/constants";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 

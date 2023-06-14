@@ -6,18 +6,13 @@ import { getMediaList } from "@/utils/getMediaList";
 import React, { useState, useEffect } from "react";
 import Loading from "./loading";
 import { Grid } from "@mui/material";
-import {
-  ClassGroup,
-  ClassifiedMediaData,
-  ClassifiedVideoData,
-  MediaData,
-} from "@/types";
+import { ClassGroup, ClassifiedVideoData, VideoData } from "@/types";
 import ClassMultiSelect from "@/components/ClassifySelectForm";
 import ClassifySelectForm from "@/components/ClassifySelectForm";
 import ClassifiedVideoList from "@/components/ClassifiedVideoList";
 
 export default function Search() {
-  const [videoData, setVideoData] = useState<MediaData | null>(null);
+  const [videoData, setVideoData] = useState<VideoData | null>(null);
   const [classifiedVideoData, setClassifiedVideoData] = useState<
     ClassifiedVideoData[] | null
   >(null);
@@ -31,6 +26,7 @@ export default function Search() {
   }, []);
 
   const handleClassify = async (classData: ClassGroup[]) => {
+    setVideoData(null);
     setClassifiedVideoData(null);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/video/classify`,
@@ -42,8 +38,6 @@ export default function Search() {
     );
 
     const data = await response.json();
-    console.log(data);
-    setVideoData(null);
     setClassifiedVideoData(data.result);
   };
   return (

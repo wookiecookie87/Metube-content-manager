@@ -4,6 +4,11 @@ export type Video = {
   thumbnail_urls: string[];
 };
 
+export type VideoData = {
+  result: Array<Video>;
+  pages: Pages;
+};
+
 export type SearchedVideo = {
   video_id: string;
   score: number;
@@ -12,6 +17,23 @@ export type SearchedVideo = {
   confidence: string;
   thumbnail_url: string;
   modules: Array<{ type: string }>;
+};
+
+export type SearchedVideoData = {
+  result: Array<SearchedVideo>;
+  pages: Pages;
+};
+
+export type ClassifiedVideoData = {
+  className: string;
+  videos: {
+    video_id: string;
+    score: number;
+  }[];
+};
+
+export type ClassifiedVideo = {
+  videoData: Array<ClassifiedVideoData>;
 };
 
 export type Pages = {
@@ -23,17 +45,7 @@ export type Pages = {
   prev_page_token?: string;
 };
 
-export type MediaData = {
-  result: Array<Video>;
-  pages: Pages;
-};
-
-export type SearchedMediaData = {
-  result: Array<SearchedVideo>;
-  pages: Pages;
-};
-
-export type SearchData = {
+export type SearchQueryData = {
   searchQuery: string;
   searchOptions: string[];
 };
@@ -41,16 +53,4 @@ export type SearchData = {
 export type ClassGroup = {
   name: string;
   prompts: string[];
-};
-
-export type ClassifiedVideoData = {
-  className: string;
-  videos: {
-    video_id: string;
-    score: number;
-  }[];
-};
-
-export type ClassifiedMediaData = {
-  videoData: ClassifiedVideoData[];
 };

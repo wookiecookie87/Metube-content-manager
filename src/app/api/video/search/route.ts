@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
-import { TL_HEADERS, VIDEO_SEARCH_API_URL, INDEX_ID } from "../../constants";
+import { TL_HEADERS, VIDEO_SEARCH_API_URL, INDEX_ID } from "../../../constants";
 
 export async function POST(request: Request) {
   //onsole.log(request);

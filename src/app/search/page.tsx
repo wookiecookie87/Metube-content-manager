@@ -1,7 +1,7 @@
 "use client";
 import VideoList from "@/components/VideoList";
 import SearchForm from "@/components/SearchForm";
-import { MediaData, SearchData, SearchedMediaData, Video } from "@/types";
+import { VideoData, SearchQueryData, SearchedVideoData, Video } from "@/types";
 import { getMediaList } from "@/utils/getMediaList";
 import { Grid } from "@mui/material";
 import React, { useState, useEffect } from "react";
@@ -10,8 +10,8 @@ import SearchedVideoList from "@/components/SearchedVideoList";
 
 export default function Search() {
   const [searchedVideoData, setSearchedVideoData] =
-    useState<SearchedMediaData | null>(null);
-  const [videoData, setVideoData] = useState<MediaData | null>(null);
+    useState<SearchedVideoData | null>(null);
+  const [videoData, setVideoData] = useState<VideoData | null>(null);
 
   useEffect(() => {
     const fetchMediaData = async () => {
@@ -22,19 +22,19 @@ export default function Search() {
     fetchMediaData();
   }, []);
 
-  const handleSearch = async (searchData: SearchData) => {
+  const handleSearch = async (searchQueryData: SearchQueryData) => {
     setSearchedVideoData(null);
+    setVideoData(null);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/video/search`,
       {
         method: "POST",
-        body: JSON.stringify(searchData),
+        body: JSON.stringify(searchQueryData),
         cache: "no-store",
       }
     );
 
     const data = await response.json();
-    setVideoData(null);
     setSearchedVideoData(data);
   };
 

@@ -2,10 +2,10 @@
 
 import { Box, Button, Grid } from "@mui/material";
 import React, { useState } from "react";
-import { SearchedMediaData, SearchedVideo } from "@/types";
+import { SearchedVideoData, SearchedVideo } from "@/types";
 import SearchedVideoCard from "./SearchedVideoCard";
 
-export interface SearchedVideoListProps extends SearchedMediaData {}
+export interface SearchedVideoListProps extends SearchedVideoData {}
 
 export default function SearchedVideo(props: SearchedVideoListProps) {
   const [videos, setVideos] = useState<SearchedVideo[]>(props.result);
@@ -27,8 +27,10 @@ export default function SearchedVideo(props: SearchedVideoListProps) {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <div>Searched results</div>
+    <>
+      <Grid item xs={12} sm={12}>
+        <div className="font-bold pb-2 text-4">Searched results</div>
+      </Grid>
       <Grid item xs={12} sm={12}>
         <Grid container spacing={3}>
           {videos.map((video: SearchedVideo) => (
@@ -42,6 +44,6 @@ export default function SearchedVideo(props: SearchedVideoListProps) {
       <Button color="primary" onClick={handleNextPage}>
         Load More
       </Button>
-    </Box>
+    </>
   );
 }

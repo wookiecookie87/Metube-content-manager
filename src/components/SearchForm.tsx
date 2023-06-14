@@ -51,6 +51,7 @@ export default function SearchForm(props: SearchFormProps) {
         value={searchQuery}
         onChange={handleSearchQueryChange}
         onKeyDown={handleKeyPress}
+        sx={{ marginTop: "10px" }}
       />
 
       <FormControlLabel
@@ -62,7 +63,7 @@ export default function SearchForm(props: SearchFormProps) {
           />
         }
         label="Visual"
-        sx={{ width: "100%" }}
+        sx={{ width: "100%", marginTop: "20px" }}
       />
       <FormControlLabel
         control={

@@ -6,6 +6,7 @@ import {
   InputLabel,
   Chip,
   Button,
+  Box,
 } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 import { classGroup } from "@/utils/classGroup";
@@ -37,7 +38,7 @@ export default function ClassifySelectForm(props: classSelectProps) {
 
   return (
     <>
-      <FormControl fullWidth>
+      <FormControl fullWidth sx={{ marginTop: "20px" }}>
         <InputLabel id="demo-multiple-chip-label">Choose Classes</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
@@ -53,6 +54,7 @@ export default function ClassifySelectForm(props: classSelectProps) {
               ))}
             </div>
           )}
+          sx={{ width: "100%" }}
         >
           {options.map((option) => (
             <MenuItem key={option} value={option}>
@@ -61,9 +63,11 @@ export default function ClassifySelectForm(props: classSelectProps) {
           ))}
         </Select>
       </FormControl>
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
-        Submit
-      </Button>
+      <Box display="flex" justifyContent="flex-end" sx={{ marginTop: "15px" }}>
+        <Button variant="contained" color="primary" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </Box>
     </>
   );
 }

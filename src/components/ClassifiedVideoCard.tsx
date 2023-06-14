@@ -1,12 +1,20 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Card, CardActionArea, CardMedia, Modal } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardMedia,
+  Modal,
+  Typography,
+} from "@mui/material";
 import ReactPlayer from "react-player";
 import { SearchedVideo, Video } from "@/types";
 
 interface SearchedVideoProps {
   video_id: string;
+  score: number;
 }
 
 export default function ClassifiedVideoCard(props: SearchedVideoProps) {
@@ -14,7 +22,7 @@ export default function ClassifiedVideoCard(props: SearchedVideoProps) {
   const [videoUrl, setVideoUrl] = useState("");
   const [thumbnailUrl, setThumbnailUrl] = useState("");
   const playerRef = useRef<ReactPlayer>(null);
-  const { video_id } = props;
+  const { video_id, score } = props;
 
   useEffect(() => {
     const fetchMediaData = async () => {
@@ -54,7 +62,7 @@ export default function ClassifiedVideoCard(props: SearchedVideoProps) {
     <div>
       <Card onClick={handleOpen}>
         <CardActionArea>
-          <Box sx={{ position: "relative", paddingTop: "100%" }}>
+          <Box sx={{ position: "relative", paddingTop: "90%" }}>
             <CardMedia
               component="img"
               alt="Thumbnail"
@@ -68,6 +76,11 @@ export default function ClassifiedVideoCard(props: SearchedVideoProps) {
               image={thumbnailUrl}
               title={`Updated at`}
             />
+          </Box>
+          <Box sx={{ position: "absolute", bottom: 10, left: 10 }}>
+            <Typography variant="body1" color="black">
+              Score: {score}
+            </Typography>
           </Box>
         </CardActionArea>
       </Card>

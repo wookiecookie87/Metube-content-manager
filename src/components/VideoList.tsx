@@ -4,10 +4,10 @@ import { Box, Grid, MenuItem, Pagination, Select } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 import * as React from "react";
 import VideoCard from "./VideoCard";
-import { MediaData, Video } from "@/types";
+import { VideoData, Video } from "@/types";
 import { AltRoute } from "@mui/icons-material";
 
-export interface VideoListProps extends MediaData {}
+export interface VideoListProps extends VideoData {}
 
 export default function VideoList(props: VideoListProps) {
   const [page, setPage] = React.useState(1);
@@ -37,12 +37,16 @@ export default function VideoList(props: VideoListProps) {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Select value={sort} onChange={handleSortChange}>
-        <MenuItem value="">None</MenuItem>
-        <MenuItem value="created_at">Rencently Uploaded</MenuItem>
-        <MenuItem value="updated_at">Rencently Updated</MenuItem>
-      </Select>
+    <>
+      <Grid item xs={12} sm={12}>
+        <Box display="flex" justifyContent="flex-end">
+          <Select value={sort} onChange={handleSortChange}>
+            <MenuItem value="">None</MenuItem>
+            <MenuItem value="created_at">Rencently Uploaded</MenuItem>
+            <MenuItem value="updated_at">Rencently Updated</MenuItem>
+          </Select>
+        </Box>
+      </Grid>
       <Grid item xs={12} sm={12}>
         <Grid container spacing={3}>
           {videos.map((video: Video) => (
@@ -70,6 +74,6 @@ export default function VideoList(props: VideoListProps) {
           }}
         />
       </Grid>
-    </Box>
+    </>
   );
 }

@@ -1,6 +1,10 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
-import { TL_HEADERS, VIDEO_CLASSIFY_API_URL, INDEX_ID } from "../../constants";
+import {
+  TL_HEADERS,
+  VIDEO_CLASSIFY_API_URL,
+  INDEX_ID,
+} from "../../../constants";
 import { ClassifiedVideoData } from "@/types";
 
 type VideoClass = {
