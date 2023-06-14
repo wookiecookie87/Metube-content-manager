@@ -6,11 +6,13 @@ import {
   Card,
   CardActionArea,
   CardMedia,
+  CircularProgress,
   Modal,
   Typography,
 } from "@mui/material";
 import ReactPlayer from "react-player";
 import { SearchedVideo, Video } from "@/types";
+import Loading from "@/app/loading";
 
 interface SearchedVideoProps {
   video_id: string;
@@ -63,19 +65,33 @@ export default function ClassifiedVideoCard(props: SearchedVideoProps) {
       <Card onClick={handleOpen}>
         <CardActionArea>
           <Box sx={{ position: "relative", paddingTop: "90%" }}>
-            <CardMedia
-              component="img"
-              alt="Thumbnail"
-              sx={{
-                position: "absolute",
-                top: 0,
-                bottom: 0,
-                left: 0,
-                right: 0,
-              }}
-              image={thumbnailUrl}
-              title={`Updated at`}
-            />
+            {thumbnailUrl ? (
+              <CardMedia
+                component="img"
+                alt="Thumbnail"
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                }}
+                image={thumbnailUrl}
+                title={`Updated at`}
+              />
+            ) : (
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "35%",
+                  bottom: 0,
+                  left: "45%",
+                  right: 0,
+                }}
+              >
+                <CircularProgress />
+              </Box>
+            )}
           </Box>
           <Box sx={{ position: "absolute", bottom: 10, left: 10 }}>
             <Typography variant="body1" color="black">
