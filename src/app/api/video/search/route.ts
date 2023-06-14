@@ -23,6 +23,7 @@ export async function POST(request: Request) {
   const response = await axios(config);
 
   const searchedDataList = response.data.data;
+  console.log(searchedDataList);
   const searchedPageData = response.data.page_info;
 
   return NextResponse.json(

@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import ReactPlayer from "react-player";
+import moment from "moment";
 import { SearchedVideo, Video } from "@/types";
 
 interface SearchedVideoProps {
@@ -19,6 +20,7 @@ interface SearchedVideoProps {
 export default function SearchedVideoCard(props: SearchedVideoProps) {
   const [open, setOpen] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
+  const [videoFileName, setVideoFileName] = useState("");
   const playerRef = useRef<ReactPlayer>(null);
   const { video } = props;
 
@@ -28,7 +30,11 @@ export default function SearchedVideoCard(props: SearchedVideoProps) {
       { cache: "no-store" }
     );
     const videoData = await response.json();
+    console.log(videoData);
     setVideoUrl(videoData.result.video_url);
+    setVideoFileName(videoData.result.file_name);
+    console.log(moment.duration(video.start, "seconds"));
+    console.log(moment.duration(video.end, "seconds"));
   };
 
   const handleOpen = () => {
@@ -117,6 +123,15 @@ export default function SearchedVideoCard(props: SearchedVideoProps) {
             ref={playerRef}
             onReady={onReady}
           />
+          <Typography variant="body1" color="black" sx={{ marginTop: "10px" }}>
+            {videoFileName}
+          </Typography>
+          <Typography variant="body1" color="black">
+            starts : {moment.utc(video.start * 1000).format("HH:mm:ss")}
+          </Typography>
+          <Typography variant="body1" color="black">
+            ends : {moment.utc(video.end * 1000).format("HH:mm:ss")}
+          </Typography>
         </Box>
       </Modal>
     </div>

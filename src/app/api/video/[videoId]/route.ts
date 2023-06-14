@@ -12,5 +12,8 @@ export async function GET(
     headers: TL_HEADERS,
   });
 
-  return NextResponse.json({ result: response.data.hls }, { status: 200 });
+  const videoData = response.data.hls;
+  videoData.file_name = response.data.metadata.filename;
+
+  return NextResponse.json({ result: videoData }, { status: 200 });
 }

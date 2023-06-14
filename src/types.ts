@@ -13,7 +13,7 @@ export type SearchedVideo = {
   video_id: string;
   score: number;
   start: number;
-  ends: number;
+  end: number;
   confidence: string;
   thumbnail_url: string;
   metadata: Array<{ type: string }>;
