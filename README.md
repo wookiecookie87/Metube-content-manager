@@ -47,3 +47,5 @@ Actual Implementation of the functionalities
   &nbsp;&nbsp;&nbsp;Video Classification : **4 hours**
   
   &nbsp;&nbsp;&nbsp;QA/debug : **2 hours**
+  
+- Total time : **20.5 hours**
