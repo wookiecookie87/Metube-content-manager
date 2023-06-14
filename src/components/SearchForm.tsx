@@ -30,6 +30,10 @@ export default function SearchForm(props: SearchFormProps) {
       newSearchOptions = searchOptions.filter(
         (option) => option !== event.target.name
       );
+      if (newSearchOptions.length === 0) {
+        alert("You need a least one search option checked");
+        return;
+      }
       setSearchOptions(newSearchOptions);
     }
     searchQuery &&
@@ -38,6 +42,11 @@ export default function SearchForm(props: SearchFormProps) {
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
+      if (!searchQuery) {
+        alert("Please type search text");
+        return;
+      }
+
       props.onSearch({ searchQuery, searchOptions });
     }
   };

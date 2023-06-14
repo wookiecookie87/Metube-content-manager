@@ -27,13 +27,12 @@ export default function ClassifySelectForm(props: classSelectProps) {
       selectedNames.includes(group.name)
     );
     setSelectedOptions(selectedGroups);
-    console.log(selectedOptions, "Dfdf");
   };
 
   const options: string[] = videoClassGroups.map((group) => group.name);
+
   const handleSubmit = () => {
     props.onClassify(selectedOptions);
-    console.log("Submitted", selectedOptions);
   };
 
   return (

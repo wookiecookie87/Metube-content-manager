@@ -14,7 +14,6 @@ export async function POST(request: Request) {
     page_limit: 16,
   });
 
-  console.log(data);
   const config = {
     method: "post",
     url: VIDEO_SEARCH_API_URL,
@@ -24,7 +23,6 @@ export async function POST(request: Request) {
   const response = await axios(config);
 
   const searchedDataList = response.data.data;
-  console.log(searchedDataList);
   const searchedPageData = response.data.page_info;
 
   return NextResponse.json(

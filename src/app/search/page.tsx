@@ -35,7 +35,6 @@ export default function Search() {
     );
 
     const data = await response.json();
-    console.log(data);
     setSearchedVideoData(data);
   };
 
@@ -59,7 +58,6 @@ export default function Search() {
           ) : (
             <Loading />
           )}
-          ;
         </Grid>
       </Grid>
     </>

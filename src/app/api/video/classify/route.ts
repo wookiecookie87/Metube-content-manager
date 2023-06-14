@@ -26,7 +26,6 @@ export async function POST(request: Request) {
     index_id: INDEX_ID,
     classes: classes,
   };
-  console.log(data);
 
   const config = {
     method: "post",
@@ -60,8 +59,6 @@ export async function POST(request: Request) {
     },
     []
   );
-
-  console.log(organizedData);
 
   const classifiedPageData = response.data.page_info;
 
