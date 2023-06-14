@@ -1,4 +1,4 @@
-# METUBE content manager
+# metube content manager
 
 ### [DEMO LINK](https://metube-content-manager.vercel.app/)
 
