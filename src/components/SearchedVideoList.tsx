@@ -53,7 +53,7 @@ export default function SearchedVideo(props: SearchedVideoListProps) {
             variant="contained"
             color="primary"
             onClick={handleNextPage}
-            style={{ height: "70px", width: "500px", fontSize: "20px" }}
+            style={{ height: "50px", width: "500px", fontSize: "20px" }}
           >
             Load More
           </Button>
