@@ -33,11 +33,11 @@ Actual Implementation of the functionalities
 
 - Understand our API, Playground, and its core functionality : **2 hours**
 - Writing the README file : **1.5 hour**
-- Setting up the project\    
-  &nbsp;&nbsp;Understanding Next13: **2 hours**\     
-  &nbsp;&nbsp;Setting up code base : **1 hour**\
-- Actual Implementation of the functionalities\
-  &nbsp;&nbsp;Video Listing : **3 hours**\     
-  &nbsp;&nbsp;Video Search : **5 hours**\     
-  &nbsp;&nbsp;Video Classification : **4 hours**\     
-  &nbsp;&nbsp;QA / debug : **2 hours**\
+- Setting up the project \    
+  &nbsp;&nbsp;Understanding Next13: **2 hours** \     
+  &nbsp;&nbsp;Setting up code base : **1 hour** \
+- Actual Implementation of the functionalities \
+  &nbsp;&nbsp;Video Listing : **3 hours** \     
+  &nbsp;&nbsp;Video Search : **5 hours** \     
+  &nbsp;&nbsp;Video Classification : **4 hours** \     
+  &nbsp;&nbsp;QA / debug : **2 hours** \
