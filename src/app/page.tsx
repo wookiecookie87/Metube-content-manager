@@ -1,10 +1,10 @@
-import { MediaData } from "@/types";
+import { VideoData } from "@/types";
 import React from "react";
 import VideoList from "@/components/VideoList";
 import { getMediaList } from "@/utils/getMediaList";
 
 export default async function Home() {
-  const videoData: MediaData = await getMediaList();
+  const videoData: VideoData = await getMediaList();
 
   return (
     <>
