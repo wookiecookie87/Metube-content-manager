@@ -75,13 +75,16 @@ export default function SearchedVideoCard(props: SearchedVideoProps) {
           </Box>
           <Box sx={{ position: "absolute", bottom: 10, left: 10 }}>
             <Typography variant="body1" color="black">
-              Confidence: {video.confidence}
+              confidence: {video.confidence}
             </Typography>
             <Typography variant="body1" color="black">
               score: {video.score}
             </Typography>
             <Typography variant="body1" color="black">
-              type: {video.modules[0].type}
+              type:{" "}
+              {video.metadata
+                .map((data: { type: string }) => data.type)
+                .join(", ")}
             </Typography>
             {/* <Typography key={index} variant="body2" color="white">
                 Type: {module.type}

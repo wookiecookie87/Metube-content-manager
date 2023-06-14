@@ -16,7 +16,7 @@ export type SearchedVideo = {
   ends: number;
   confidence: string;
   thumbnail_url: string;
-  modules: Array<{ type: string }>;
+  metadata: Array<{ type: string }>;
 };
 
 export type SearchedVideoData = {
