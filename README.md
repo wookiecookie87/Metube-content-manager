@@ -19,6 +19,7 @@
 ## Major Constraints or limitations
 
 - I encountered difficulties in designing reusable components because each API response had different video data. The basic video data I needed included video_id, thumbnail_url, filename, and video_url. However, each API provided different amounts of video data. For instance, the list API only provided the filename, the search API only provided the thumbnail_url, and the classify API only provided the video_id. Detailed video data was supposed to be retrieved via a separate video retrieval API. However, the varying degrees of video data in each API response made it challenging to determine the right timing to call the video retrieval API in components. This overhead caused difficulties in designing reusable components.
+- The Classification API response seemed rather unintuitive. Organizing the response data according to class caused significant overhead while optimizing the list page. As I was unable to implement pagination, I listed all the classified results on the page, which involved making numerous calls to the video retrieval API simultaneously. If the index contained a large data set, this method could potentially cause serious problems.
 
 ## Why do we need this software?
 
