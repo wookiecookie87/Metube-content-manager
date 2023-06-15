@@ -20,23 +20,9 @@
 
 - I encountered difficulties in designing reusable components because each API response had different video data. The basic video data I needed included video_id, thumbnail_url, filename, and video_url. However, each API provided different amounts of video data. For instance, the list API only provided the filename, the search API only provided the thumbnail_url, and the classify API only provided the video_id. Detailed video data was supposed to be retrieved via a separate video retrieval API. However, the varying degrees of video data in each API response made it challenging to determine the right timing to call the video retrieval API in components. This overhead caused difficulties in designing reusable components.
 
-Understand our API, Playground, and its core functionality
-Writing the README file
-Setting up the project
-Actual Implementation of the functionalities
-
 ## Why do we need this software?
 
 - Managing hundreds of video contents is difficult. With this software, we don't need to watch every video and manually label and tag each one. We can simply upload the videos to the platform, and it will index each video, making search and classification easy. This software will organize all videos, saving us hundreds of hours
-
-
-
-
-
-
-
-
-
 
 ### Total time to finish the project
 
@@ -44,17 +30,18 @@ Actual Implementation of the functionalities
 - Writing the README file : **1.5 hour**
 - Setting up the project
 
-  &nbsp;&nbsp;&nbsp;Understanding Next13: **2 hours**
-  
+  &nbsp;&nbsp;&nbsp;Designing UI component architecture: **2 hours**
+
   &nbsp;&nbsp;&nbsp;Setting up code base : **1 hour**
+
 - Actual Implementation of the functionalities
 
   &nbsp;&nbsp;&nbsp;Video Listing : **3 hours**
-  
+
   &nbsp;&nbsp;&nbsp;Video Search : **5 hours**
-  
+
   &nbsp;&nbsp;&nbsp;Video Classification : **4 hours**
-  
+
   &nbsp;&nbsp;&nbsp;QA/debug : **2 hours**
-  
+
 - Total time : **20.5 hours**
