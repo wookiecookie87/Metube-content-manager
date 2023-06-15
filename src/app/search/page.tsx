@@ -22,7 +22,7 @@ export default function Search() {
     fetchMediaData();
   }, []);
 
-  const handleSearch = async (searchQueryData: SearchQueryData) => {
+  const handleSearchVideo = async (searchQueryData: SearchQueryData) => {
     setSearchedVideoData(null);
     setVideoData(null);
     const response = await fetch(
@@ -45,7 +45,7 @@ export default function Search() {
           <div className="text-4xl font-bold">Search</div>
         </Grid>
         <Grid item xs={12} sm={2}>
-          <SearchForm onSearch={handleSearch} />
+          <SearchForm onSearch={handleSearchVideo} />
         </Grid>
         <Grid item xs={12} sm={10}>
           {videoData ? (

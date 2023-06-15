@@ -11,7 +11,7 @@ import ClassMultiSelect from "@/components/ClassifySelectForm";
 import ClassifySelectForm from "@/components/ClassifySelectForm";
 import ClassifiedVideoList from "@/components/ClassifiedVideoList";
 
-export default function Search() {
+export default function Classify() {
   const [videoData, setVideoData] = useState<VideoData | null>(null);
   const [classifiedVideoData, setClassifiedVideoData] = useState<
     ClassifiedVideoData[] | null
@@ -25,7 +25,7 @@ export default function Search() {
     fetchMediaData();
   }, []);
 
-  const handleClassify = async (classData: ClassGroup[]) => {
+  const handleClassifyVideo = async (classData: ClassGroup[]) => {
     setVideoData(null);
     setClassifiedVideoData(null);
     const response = await fetch(
@@ -36,8 +36,8 @@ export default function Search() {
         cache: "no-store",
       }
     );
-
     const data = await response.json();
+
     setClassifiedVideoData(data.result);
   };
   return (
@@ -47,7 +47,7 @@ export default function Search() {
           <div className="text-4xl font-bold">Classify</div>
         </Grid>
         <Grid item xs={12} sm={2}>
-          <ClassifySelectForm onClassify={handleClassify} />
+          <ClassifySelectForm onClassify={handleClassifyVideo} />
         </Grid>
         <Grid item xs={12} sm={10}>
           {videoData ? (

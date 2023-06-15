@@ -1,18 +1,7 @@
 "use client";
 
-import { Box, CircularProgress } from "@mui/material";
+import CircularLoading from "@/components/CircularLoading";
 
 export default function Loading() {
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "50vh",
-      }}
-    >
-      <CircularProgress />
-    </Box>
-  );
+  return <CircularLoading />;
 }

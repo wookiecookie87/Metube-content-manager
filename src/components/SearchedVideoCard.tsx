@@ -30,11 +30,9 @@ export default function SearchedVideoCard(props: SearchedVideoProps) {
       { cache: "no-store" }
     );
     const videoData = await response.json();
-    console.log(videoData);
+
     setVideoUrl(videoData.result.video_url);
     setVideoFileName(videoData.result.file_name);
-    console.log(moment.duration(video.start, "seconds"));
-    console.log(moment.duration(video.end, "seconds"));
   };
 
   const handleOpen = () => {
