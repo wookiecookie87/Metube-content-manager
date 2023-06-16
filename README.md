@@ -5,9 +5,10 @@
 ## Getting Started
 
 To start the project on local, navigate to the root directory and run the following command:
+
 `$ npm run dev`
 
-To change API keys, index, api url, please check **'.env.development'** or **'.env.production'** files
+To change API keys, index, api url, please check **`.env.development`** or **`.env.production`** files
 
 ## Assumptions
 
