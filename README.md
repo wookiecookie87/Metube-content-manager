@@ -2,6 +2,13 @@
 
 ### [DEMO LINK](https://metube-content-manager.vercel.app/)
 
+## Getting Started
+
+To start the project on local, navigate to the root directory and run the following command:
+`$ npm run dev`
+
+To change API keys, index, api url, please check **'.env.development'** or **'.env.production'** files
+
 ## Assumptions
 
 - Metube company's main needs are search and classification of their video assets. Therefore, for the first system implementation as an MVP, the main functionalities they need to experience are video listing, video search, and video classification. Once they are certain of the system, they may require other management functionalities such as video uploading, updating, and deleting.
